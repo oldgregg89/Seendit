@@ -7,7 +7,7 @@ import './App.css';
 function App() {
   return (
     <React.Fragment>
-      <Container>
+      <Container style={{backgroundColor: 'grey', marginTop: '150px'}}>
         <Header />
         <PostControl />
       </Container>

@@ -5,7 +5,7 @@ import { v4 } from 'uuid';
 
 const masterPostList = [
   {
-    name: "Ninja Sh%t",
+    name: "Mall Ninja Sh%t",
     content: "look at this crap",
     key: v4()
   },
