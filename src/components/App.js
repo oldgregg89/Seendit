@@ -3,7 +3,7 @@ import Header from './Header'
 import PostControl from './PostControl';
 import { Container } from 'react-bootstrap';
 import './App.css';
-
+//integrate react-redux, add provide tag, 
 function App() {
   return (
     <React.Fragment>

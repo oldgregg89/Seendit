@@ -1,4 +1,4 @@
-import posttReducer from '../../reducers/post-reducer';
+import postReducer from '../../reducers/post-reducer';
 
 describe('postReducer', () => {
 

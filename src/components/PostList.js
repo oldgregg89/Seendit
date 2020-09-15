@@ -2,7 +2,7 @@ import React from "react";
 import Post from "./Post";
 import PropTypes from "prop-types";
 import { v4 } from 'uuid';
-
+// masterPostList needs to be moved into redux store
 const masterPostList = [
   {
     name: "Mall Ninja Sh%t",
@@ -11,17 +11,15 @@ const masterPostList = [
   },
   {
     name: "Big Cheeto man do bad thing",
-    price: "Blahblahblah",
+    content: "Blahblahblah",
     key: v4()
   },
   {
     name: "Luxemburg",
-    price: "picture of a place",
+    content: "picture of a place",
     key: v4()
   }
 ]
-
-
 
 function PostList(props) {
   return (
