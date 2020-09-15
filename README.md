@@ -1,8 +1,16 @@
 # Seendit
 
-[Seendit]()
+#### _Seendit UI made with react, 2020 ver 1.0.0_
+
+By Ian Gregg & Jeff Kim & Kyle Hubbard & Joseph Pearce
+
+[Seendit](https://github.com/oldgregg89/Seendit)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Description 
+
+A forum styled application built with React that allow the users to offer a collection of different pages or forums where users may post news, pictures, and other information around a certain topic. Other users can then upvote or downvote content.
 
 ## Available Scripts
 
@@ -70,3 +78,18 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Support and contact details
+
+* Ian Gregg: <iangregg188@gmail.com>
+* Joseph Pearce <joseph.pearce05@gmail.com>
+* Kyle Hubbard <kyle.james.hubbard@gmail.com>
+* Jeff Kim <kim2jy@hotmail.com>
+
+## License
+
+Copyright (c) 2020 **_Ian Gregg & Jeff Kim & Kyle Hubbard & Joseph Pearce_**
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
