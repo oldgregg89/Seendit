@@ -1,34 +1,21 @@
 import React from "react";
 import Post from "./Post";
 import PropTypes from "prop-types";
-import { v4 } from 'uuid';
 // masterPostList needs to be moved into redux store
-const masterPostList = [
-  {
-    name: "Mall Ninja Sh%t",
-    content: "look at this crap",
-    key: v4()
-  },
-  {
-    name: "Big Cheeto man do bad thing",
-    content: "Blahblahblah",
-    key: v4()
-  },
-  {
-    name: "Luxemburg",
-    content: "picture of a place",
-    key: v4()
-  }
-]
+
 
 function PostList(props) {
   return (
     <React.Fragment>
       <hr />
-      {masterPostList.map((post) =>
-        <Product name={post.name}
-          content={post.content}
-          key={post.key}/>
+      {Object.values(props.postList).map((post) =>
+        <Post 
+        names={post.names}
+        content={post.content}
+        upVote={post.upVote}
+        downVote={post.downVote}
+        id={post.id}
+        key ={post.id}/>
       )}
     </React.Fragment>
   );

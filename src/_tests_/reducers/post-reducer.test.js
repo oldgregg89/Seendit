@@ -6,6 +6,8 @@ describe('postReducer', () => {
   const postData = {
     names: 'A bird',
     content: 'Distracts Kyle',
+    upVote: '4',
+    downVote: '3',
     id: 1
   };
 
@@ -14,11 +16,13 @@ describe('postReducer', () => {
   });
 
   test('Should successfully add new mech data to PostList', () => {
-    const { names, content, id } = postData;
+    const { names, content, upVote, downVote, id } = postData;
     action = {
       type: 'ADD_POST',
       names: names,
       content: content,
+      upVote: upVote,
+      downVote: downVote,
       id: id
     };
 
@@ -26,6 +30,8 @@ describe('postReducer', () => {
       [id] : {
         names: names,
         content: content,
+        upVote: upVote,
+        downVote: downVote,
         id: id
       }
     });
