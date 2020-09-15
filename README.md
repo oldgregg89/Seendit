@@ -1,5 +1,7 @@
 # Seendit
 
+![scared-dog](https://media.giphy.com/media/YCpO3k6BI38qc/giphy.gif)
+
 #### _Seendit UI made with react, 2020 ver 1.0.0_
 
 By Ian Gregg & Jeff Kim & Kyle Hubbard & Joseph Pearce
