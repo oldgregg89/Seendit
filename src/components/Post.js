@@ -4,17 +4,19 @@ import PropTypes from "prop-types";
 function Post(props) {
   return (
     <React.Fragment>
-      <h3>Post Name: {props.names}</h3>
-      <h3>Content: {props.content}</h3>
-      <h3>Vote Up: {props.upVote}</h3> {/* vote up and down are vote tallies */}
-      <h3>Vote Down: {props.downVote}</h3>
+      <div onClick={() => props.onSelect(props.id)}>
+        <h3>Post Name: {props.names}</h3>
+        {/* <h3>Content: {props.content}</h3>
+        <h3>Vote Up: {props.upVote}</h3> vote up and down are vote tallies */}
+        {/* <h3>Vote Down: {props.downVote}</h3> */}
+      </div>
       <hr />
-    </React.Fragment>
+    </React.Fragment >
   )
 }
 
 Post.propTypes = {
-  name: PropTypes.string,
+  names: PropTypes.string,
   content: PropTypes.string,
   upVote: PropTypes.number,
   downVote: PropTypes.number,

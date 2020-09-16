@@ -3,19 +3,42 @@ import PostList from './PostList';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import PostEdit from './PostEdit';
+import PostDetail from './PostDetail';
 import NewPostForm from './NewPostForm';
-// add mapstatetoprop 
 
 class PostControl extends React.Component {
 
-constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       formVisibleOnPage: false,
       selectedPost: null,
       editing: false
     };
-  
+  }
+
+  // need a handle click function
+
+  handleClick = () => {
+    if (this.state.selectedPost != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedPost: null
+      });
+    }
+    else {
+      this.setState(prevState => ({
+        formVisibleOnPage: !prevState.formVisibleOnPage
+      }));
+    }
+  }
+
+  handleSelectingPost = (id) => {
+    console.log(id);
+    const newSelectPost = this.props.masterPostList[id]
+    this.setState({
+      selectedPost: newSelectPost
+    })
   }
 
   handleAddNewPost = (newPost) => {
@@ -30,7 +53,11 @@ constructor(props) {
       VoteDown: voteDown
     }
     dispatch(action);
-    this.setState({formVisibleOnPage: false});
+    this.setState({ 
+      formVisibleOnPage: false,
+      selectedPost: null,
+      editing: false
+    });
   }
 
   handleEditingPost = (postToEdit) => {
@@ -53,47 +80,45 @@ constructor(props) {
 
   handleDeletingPost = (id) => {
     const { dispatch } = this.props;
-      const action = {
-        type: 'DELETE_POST',
-        id: id
-      }
-      dispatch(action);
-      this.setState({selectedPost: null});
+    const action = {
+      type: 'DELETE_POST',
+      id: id
+    }
+    dispatch(action);
+    this.setState({ selectedPost: null });
   }
 
-  render(){
+  render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.editing) {
-      currentlyVisibleState = <PostEdit post = {this.state.selectedTicket} onEditTicket = 
-      {this.handleEditingPost} />
+    if (this.selectedPost != null) {
+      currentlyVisibleState = <PostDetail postDetail={this.selectedPost} />
+    } else if (this.state.editing) {
+      currentlyVisibleState = <PostEdit post={this.state.selectedTicket} onEditTicket=
+        {this.handleEditingPost} />
       buttonText = "Return to Posts";
-    } 
+    } else if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddNewPost}/>
+      buttonText = "Return to Post List"
+    } else {
+      currentlyVisibleState = <PostList postList={this.props.masterPostList} onSelectPost={this.handleSelectingPost} />
+      buttonText = "Add Post"
+    }
     return (
       <React.Fragment>
-      {currentlyVisibleState}
-      <button onClick={this.handleClick}>{buttonText}</button>
+        {currentlyVisibleState}
+        <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
-
-    );   
+    );
   }
-
 }
-
-  
-  
-  PostControl.propTypes = {
-    masterPostList: PropTypes.object
-  };
-  
-  const mapStateToProps = state => {
-    return {
-      masterPostList: state
-    }
+PostControl.propTypes = {
+  masterPostList: PropTypes.object
+};
+const mapStateToProps = state => {
+  return {
+    masterPostList: state
   }
-
-
+}
 PostControl = connect(mapStateToProps)(PostControl);
-
-
 export default PostControl;

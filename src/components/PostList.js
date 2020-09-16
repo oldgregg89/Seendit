@@ -9,22 +9,24 @@ function PostList(props) {
     <React.Fragment>
       <hr />
       {Object.values(props.postList).map((post) =>
-        <Post 
-        names={post.names}
-        content={post.content}
-        upVote={post.upVote}
-        downVote={post.downVote}
-        id={post.id}
-        key ={post.id}/>
+        <Post
+          names={post.names}
+          content={post.content}
+          onSelect={props.onSelectPost}
+          upVote={post.upVote}
+          downVote={post.downVote}
+          id={post.id}
+          key={post.id} />
       )}
     </React.Fragment>
   );
 }
 
 PostList.propTypes = {
-  postList: PropTypes.array,
+  postList: PropTypes.object,
   upVote: PropTypes.func,
-  downVote: PropTypes.func
+  downVote: PropTypes.func,
+  onSelectPost: PropTypes.func
 }
 
 export default PostList;
