@@ -22,6 +22,7 @@ function PostList(props) {
           content={post.content}
           onSelect={props.onSelectPost}
           onUpVote={props.onUpVoting}
+          onDownVote={props.onDownVoting}
           score={post.score}
           // upVote={post.upVote}
           // downVote={post.downVote}

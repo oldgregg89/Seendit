@@ -12,6 +12,7 @@ function Post(props) {
         {/* <h3>Vote Down: {props.downVote}</h3> */}
       </div>
       <button onClick={() => props.onUpVote(props.id)}>Upvote</button>
+      <button onClick={() => props.onDownVote(props.id)}>Downvote</button>
       {/* <button onClick={handleDownVoting}>Downvote</button> */}
     </React.Fragment >
   )
