@@ -17,8 +17,6 @@ class PostControl extends React.Component {
     };
   }
 
-  // need a handle click function
-
   handleClick = () => {
     if (this.state.selectedPost != null) {
       this.setState({
@@ -51,8 +49,6 @@ class PostControl extends React.Component {
       names: names,
       content: content,
       score: score
-      // upVote: upVote,
-      // downVote: downVote
     }
     dispatch(action);
     this.setState({
@@ -71,8 +67,6 @@ class PostControl extends React.Component {
       names: names,
       content: content,
       score: score
-      // VoteUp: voteUp,
-      // VoteDown: voteDown
     }
     dispatch(action);
     this.setState({
