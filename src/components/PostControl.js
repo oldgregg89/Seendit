@@ -36,6 +36,7 @@ class PostControl extends React.Component {
   handleSelectingPost = (id) => {
     console.log(id);
     const newSelectPost = this.props.masterPostList[id]
+    console.log(newSelectPost)
     this.setState({
       selectedPost: newSelectPost
     })
@@ -43,17 +44,18 @@ class PostControl extends React.Component {
 
   handleAddNewPost = (newPost) => {
     const { dispatch } = this.props;
-    const { id, names, content, voteUp, voteDown } = newPost;
+    const { id, names, content, score } = newPost;
     const action = {
       type: 'ADD_POST',
       id: id,
       names: names,
       content: content,
-      VoteUp: voteUp,
-      VoteDown: voteDown
+      score: score
+      // upVote: upVote,
+      // downVote: downVote
     }
     dispatch(action);
-    this.setState({ 
+    this.setState({
       formVisibleOnPage: false,
       selectedPost: null,
       editing: false
@@ -62,14 +64,15 @@ class PostControl extends React.Component {
 
   handleEditingPost = (postToEdit) => {
     const { dispatch } = this.props;
-    const { id, names, content, voteUp, voteDown } = postToEdit;
+    const { id, names, content, score } = postToEdit;
     const action = {
       type: 'ADD_POST',
       id: id,
       names: names,
       content: content,
-      VoteUp: voteUp,
-      VoteDown: voteDown
+      score: score
+      // VoteUp: voteUp,
+      // VoteDown: voteDown
     }
     dispatch(action);
     this.setState({
@@ -88,6 +91,46 @@ class PostControl extends React.Component {
     this.setState({ selectedPost: null });
   }
 
+  handleVotingUp = (postId) => {
+    const { dispatch } = this.props;
+    const {id, names, score, content} = this.props.masterPostList[postId]
+    const newScore = score + 1;
+    const action = {
+      type: 'ADD_POST',
+      id: id,
+      names: names,
+      content: content,
+      score: newScore
+      // VoteUp: voteUp,
+      // VoteDown: voteDown
+    }
+    dispatch(action);
+    this.setState({
+      editing: false,
+      selectedPost: null
+    });
+  }
+
+  handleVotingDown = (postId) => {
+    const { dispatch } = this.props;
+    const {id, names, score, content} = this.props.masterPostList[postId]
+    const newScore = score - 1;
+    const action = {
+      type: 'ADD_POST',
+      id: id,
+      names: names,
+      content: content,
+      score: newScore
+      // VoteUp: voteUp,
+      // VoteDown: voteDown
+    }
+    dispatch(action);
+    this.setState({
+      editing: false,
+      selectedPost: null
+    });
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -98,10 +141,10 @@ class PostControl extends React.Component {
         {this.handleEditingPost} />
       buttonText = "Return to Posts";
     } else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddNewPost}/>
+      currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddNewPost} />
       buttonText = "Return to Post List"
     } else {
-      currentlyVisibleState = <PostList postList={this.props.masterPostList} onSelectPost={this.handleSelectingPost} />
+      currentlyVisibleState = <PostList postList={this.props.masterPostList} onSelectPost={this.handleSelectingPost} onUpVoting={this.handleVotingUp} />
       buttonText = "Add Post"
     }
     return (

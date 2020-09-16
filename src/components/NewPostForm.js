@@ -10,8 +10,9 @@ function NewPostForm(props){
     props.onNewPostCreation({
       names: event.target.names.value, 
       content: event.target.content.value, 
-      upVote: event.target.upVote.value,
-      downVote: event.target.downVote.value,
+      score: 0,
+      // upVote: 0,//vent.target.upVote.value,
+      // downVote: 0,//event.target.downVote.value,
       id: v4()});
   }
 

@@ -5,6 +5,14 @@ import PropTypes from "prop-types";
 
 
 function PostList(props) {
+  // function handleUpVoting() {
+  //   props.onVotingUp(post.score++)
+  // }
+
+  // function handleDownVoting() {
+  //   props.onVotingDown(post.score--
+  // }
+
   return (
     <React.Fragment>
       <hr />
@@ -13,19 +21,23 @@ function PostList(props) {
           names={post.names}
           content={post.content}
           onSelect={props.onSelectPost}
-          upVote={post.upVote}
-          downVote={post.downVote}
+          onUpVote={props.onUpVoting}
+          score={post.score}
+          // upVote={post.upVote}
+          // downVote={post.downVote}
           id={post.id}
           key={post.id} />
       )}
-    </React.Fragment>
-  );
-}
 
+    </React.Fragment>
+  )
+
+}
 PostList.propTypes = {
   postList: PropTypes.object,
-  upVote: PropTypes.func,
-  downVote: PropTypes.func,
+  score: PropTypes.number,
+  // upVote: PropTypes.number,
+  // downVote: PropTypes.number,
   onSelectPost: PropTypes.func
 }
 
