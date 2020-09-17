@@ -87,7 +87,7 @@ class PostControl extends React.Component {
 
   handleVotingUp = (postId) => {
     const { dispatch } = this.props;
-    const { id, names, score, content } = this.props.masterPostList[postId]
+    const { id, names, score, content } = this.props.masterPostList[postId]  
     const newScore = score + 1;
     const action = {
       type: 'ADD_POST',
@@ -145,13 +145,26 @@ class PostControl extends React.Component {
     );
   }
 }
+const convertArrayToObj = (array, key) => {
+  const initialVal = {};
+  return array.reduce((obj, item) => {
+    return {
+      ...obj,
+      [item[key]]: item,
+    };
+  }, initialVal);
+};
 PostControl.propTypes = {
   masterPostList: PropTypes.object
 };
 const mapStateToProps = state => {
+  const stateToArray = Object.values(state);
+  const sortedStateArray = stateToArray.sort(function(a, b) {return (b.score - a.score)})
+  const returnObj = convertArrayToObj(sortedStateArray, 'id');
   return {
-    masterPostList: state
+    masterPostList: returnObj
   }
 }
 PostControl = connect(mapStateToProps)(PostControl);
 export default PostControl;
+
