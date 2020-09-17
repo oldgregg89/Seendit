@@ -12,15 +12,15 @@ function ReusableForm(props) {
           <Form.Control
             type='text'
             name='names'
-            placeholder='Names' />
+            placeholder='Name' />
         </Form.Group>
         <Form.Group>
           <Form.Control
             type='text'
             name='content'
-            placeholder='content' />
+            placeholder='Add Content' />
         </Form.Group>
-        <div style={{padding: 10}}>
+        <div style={{ padding: 10 }}>
           <Button variant="info" type='submit'>{props.buttonText}</Button>
         </div>
       </Form>
